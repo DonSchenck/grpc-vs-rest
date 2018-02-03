@@ -1,0 +1,10 @@
+/Users/dschenck/rest/restServer/bin/Debug/netcoreapp2.0/restServer.deps.json
+/Users/dschenck/rest/restServer/bin/Debug/netcoreapp2.0/restServer.runtimeconfig.json
+/Users/dschenck/rest/restServer/bin/Debug/netcoreapp2.0/restServer.runtimeconfig.dev.json
+/Users/dschenck/rest/restServer/bin/Debug/netcoreapp2.0/restServer.dll
+/Users/dschenck/rest/restServer/bin/Debug/netcoreapp2.0/restServer.pdb
+/Users/dschenck/rest/restServer/obj/Debug/netcoreapp2.0/restServer.csproj.CoreCompileInputs.cache
+/Users/dschenck/rest/restServer/obj/Debug/netcoreapp2.0/restServer.AssemblyInfoInputs.cache
+/Users/dschenck/rest/restServer/obj/Debug/netcoreapp2.0/restServer.AssemblyInfo.cs
+/Users/dschenck/rest/restServer/obj/Debug/netcoreapp2.0/restServer.dll
+/Users/dschenck/rest/restServer/obj/Debug/netcoreapp2.0/restServer.pdb
