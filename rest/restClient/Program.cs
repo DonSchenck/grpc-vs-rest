@@ -2,6 +2,8 @@
 using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace restClient
 {
@@ -14,10 +16,10 @@ namespace restClient
             string username = "REST client";
             Console.WriteLine("... making 1,000 REST calls ... be right back ...");
             Stopwatch stopwatch = Stopwatch.StartNew();
-            for (int i=0; i < 1000; i++) {
-                var resultString = GetIt(url,username).Result;
-                if (i == 500) {
-                    Console.WriteLine("Hello number " + i.ToString() + ": " + resultString);
+            for (int i=0; i < 300; i++) {
+                var resultJson = GetIt(url,username).Result;
+                if (i == 150) {
+                    Console.WriteLine("Hello number " + i.ToString() + ": " + JsonConvert.DeserializeObject(resultJson));
                 }
             }
             stopwatch.Stop();

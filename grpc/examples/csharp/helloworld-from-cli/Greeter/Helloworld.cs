@@ -23,16 +23,21 @@ namespace Helloworld {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChBoZWxsb3dvcmxkLnByb3RvEgpoZWxsb3dvcmxkIhwKDEhlbGxvUmVxdWVz",
-            "dBIMCgRuYW1lGAEgASgJIh0KCkhlbGxvUmVwbHkSDwoHbWVzc2FnZRgBIAEo",
-            "CTJJCgdHcmVldGVyEj4KCFNheUhlbGxvEhguaGVsbG93b3JsZC5IZWxsb1Jl",
-            "cXVlc3QaFi5oZWxsb3dvcmxkLkhlbGxvUmVwbHkiAEI2Chtpby5ncnBjLmV4",
-            "YW1wbGVzLmhlbGxvd29ybGRCD0hlbGxvV29ybGRQcm90b1ABogIDSExXYgZw",
-            "cm90bzM="));
+            "dBIMCgRuYW1lGAEgASgJIh0KDVBlcnNvblJlcXVlc3QSDAoEbmFtZRgBIAEo",
+            "CSIdCgpIZWxsb1JlcGx5Eg8KB21lc3NhZ2UYASABKAkiPAoGUGVyc29uEhAK",
+            "CGZ1bGxuYW1lGAEgASgJEhAKCHBob25lbmJyGAIgASgJEg4KBnVzZXJpZBgD",
+            "IAEoCTKHAQoHR3JlZXRlchI+CghTYXlIZWxsbxIYLmhlbGxvd29ybGQuSGVs",
+            "bG9SZXF1ZXN0GhYuaGVsbG93b3JsZC5IZWxsb1JlcGx5IgASPAoJR2V0UGVy",
+            "c29uEhkuaGVsbG93b3JsZC5QZXJzb25SZXF1ZXN0GhIuaGVsbG93b3JsZC5Q",
+            "ZXJzb24iAEI2Chtpby5ncnBjLmV4YW1wbGVzLmhlbGxvd29ybGRCD0hlbGxv",
+            "V29ybGRQcm90b1ABogIDSExXYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Helloworld.HelloRequest), global::Helloworld.HelloRequest.Parser, new[]{ "Name" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Helloworld.HelloReply), global::Helloworld.HelloReply.Parser, new[]{ "Message" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Helloworld.PersonRequest), global::Helloworld.PersonRequest.Parser, new[]{ "Name" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Helloworld.HelloReply), global::Helloworld.HelloReply.Parser, new[]{ "Message" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Helloworld.Person), global::Helloworld.Person.Parser, new[]{ "Fullname", "Phonenbr", "Userid" }, null, null, null)
           }));
     }
     #endregion
@@ -160,6 +165,126 @@ namespace Helloworld {
   }
 
   /// <summary>
+  /// The request message containing the person's name.
+  /// </summary>
+  public sealed partial class PersonRequest : pb::IMessage<PersonRequest> {
+    private static readonly pb::MessageParser<PersonRequest> _parser = new pb::MessageParser<PersonRequest>(() => new PersonRequest());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<PersonRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Helloworld.HelloworldReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PersonRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PersonRequest(PersonRequest other) : this() {
+      name_ = other.name_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PersonRequest Clone() {
+      return new PersonRequest(this);
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as PersonRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(PersonRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Name != other.Name) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(PersonRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
   /// The response message containing the greetings
   /// </summary>
   public sealed partial class HelloReply : pb::IMessage<HelloReply> {
@@ -169,7 +294,7 @@ namespace Helloworld {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Helloworld.HelloworldReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Helloworld.HelloworldReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -271,6 +396,182 @@ namespace Helloworld {
             break;
           case 10: {
             Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  /// The response containing a person 
+  /// </summary>
+  public sealed partial class Person : pb::IMessage<Person> {
+    private static readonly pb::MessageParser<Person> _parser = new pb::MessageParser<Person>(() => new Person());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Person> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Helloworld.HelloworldReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Person() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Person(Person other) : this() {
+      fullname_ = other.fullname_;
+      phonenbr_ = other.phonenbr_;
+      userid_ = other.userid_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Person Clone() {
+      return new Person(this);
+    }
+
+    /// <summary>Field number for the "fullname" field.</summary>
+    public const int FullnameFieldNumber = 1;
+    private string fullname_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Fullname {
+      get { return fullname_; }
+      set {
+        fullname_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "phonenbr" field.</summary>
+    public const int PhonenbrFieldNumber = 2;
+    private string phonenbr_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Phonenbr {
+      get { return phonenbr_; }
+      set {
+        phonenbr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "userid" field.</summary>
+    public const int UseridFieldNumber = 3;
+    private string userid_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Userid {
+      get { return userid_; }
+      set {
+        userid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Person);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Person other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Fullname != other.Fullname) return false;
+      if (Phonenbr != other.Phonenbr) return false;
+      if (Userid != other.Userid) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Fullname.Length != 0) hash ^= Fullname.GetHashCode();
+      if (Phonenbr.Length != 0) hash ^= Phonenbr.GetHashCode();
+      if (Userid.Length != 0) hash ^= Userid.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Fullname.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Fullname);
+      }
+      if (Phonenbr.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Phonenbr);
+      }
+      if (Userid.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Userid);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Fullname.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Fullname);
+      }
+      if (Phonenbr.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Phonenbr);
+      }
+      if (Userid.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Userid);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Person other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Fullname.Length != 0) {
+        Fullname = other.Fullname;
+      }
+      if (other.Phonenbr.Length != 0) {
+        Phonenbr = other.Phonenbr;
+      }
+      if (other.Userid.Length != 0) {
+        Userid = other.Userid;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            Fullname = input.ReadString();
+            break;
+          }
+          case 18: {
+            Phonenbr = input.ReadString();
+            break;
+          }
+          case 26: {
+            Userid = input.ReadString();
             break;
           }
         }

@@ -16,6 +16,8 @@ using System;
 using System.Diagnostics;
 using Grpc.Core;
 using Helloworld;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace GreeterClient
 {
@@ -24,28 +26,33 @@ namespace GreeterClient
         public static void Main(string[] args)
         {
 
-            Channel channel = new Channel("52.190.8.13:50051", ChannelCredentials.Insecure);
+//            Channel channel = new Channel("52.190.8.13:50051", ChannelCredentials.Insecure);
+            Channel channel = new Channel("localhost:50051", ChannelCredentials.Insecure);
 
 
             var client = new Greeter.GreeterClient(channel);
-            String user = "from the gRPC server";
-            HelloRequest hr = new HelloRequest { Name = user };
+            String user = "grpcClient";
+//            HelloRequest hr = new HelloRequest { Name = user };
+            PersonRequest pr = new PersonRequest{ Name = user }; 
 
             Stopwatch stopwatch = Stopwatch.StartNew();
-            Console.WriteLine(" ... calling server 1,000 times ... hang on ...");
-            for (int i = 0; i < 1000; i++)
+            Console.WriteLine(" ... calling server 300 times ... hang on ...");
+            for (int i = 0; i < 300; i++)
             {
-                AsyncUnaryCall<HelloReply> reply = client.SayHelloAsync(hr);
-                var resultString = reply.ResponseAsync.Result;
-                if (i == 500) {
-                    Console.WriteLine("Greeting number " + i.ToString() + ": " + resultString);
+                //Person p = client.GetPerson(pr);
+                //AsyncUnaryCall<HelloReply> reply = client.SayHelloAsync(hr);
+                //var resultString = reply.ResponseAsync.IsCompleted;
+                if (i == 150) {
+                    //reply.ResponseAsync.Wait(CancellationToken.None);
+                    Helloworld.Person p = client.GetPerson(pr);
+                    Console.WriteLine("Greeting number " + i.ToString() + ": " + p.Userid);
                 }
             }
 
             stopwatch.Stop();
             Console.WriteLine("Elapsed time {0} ms",stopwatch.ElapsedMilliseconds);
             
-            channel.ShutdownAsync().Wait();
+            //channel.ShutdownAsync().Wait();
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
         }

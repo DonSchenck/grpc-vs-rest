@@ -26,6 +26,15 @@ namespace GreeterServer
         {
             return Task.FromResult(new HelloReply { Message = "Hello " + request.Name });
         }
+
+        public override Task<Person> GetPerson(PersonRequest request, ServerCallContext context)
+        {
+            Person p = new Person();
+            p.Fullname = request.Name;
+            p.Phonenbr = "555-867-3509";
+            p.Userid = request.Name + "@gmail.com";
+            return Task.FromResult(p);
+        }
     }
 
     class Program
