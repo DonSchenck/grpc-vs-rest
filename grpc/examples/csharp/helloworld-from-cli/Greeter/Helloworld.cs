@@ -23,18 +23,21 @@ namespace Helloworld {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChBoZWxsb3dvcmxkLnByb3RvEgpoZWxsb3dvcmxkIhwKDEhlbGxvUmVxdWVz",
-            "dBIMCgRuYW1lGAEgASgJIh0KDVBlcnNvblJlcXVlc3QSDAoEbmFtZRgBIAEo",
-            "CSIdCgpIZWxsb1JlcGx5Eg8KB21lc3NhZ2UYASABKAkiPAoGUGVyc29uEhAK",
-            "CGZ1bGxuYW1lGAEgASgJEhAKCHBob25lbmJyGAIgASgJEg4KBnVzZXJpZBgD",
-            "IAEoCTKHAQoHR3JlZXRlchI+CghTYXlIZWxsbxIYLmhlbGxvd29ybGQuSGVs",
-            "bG9SZXF1ZXN0GhYuaGVsbG93b3JsZC5IZWxsb1JlcGx5IgASPAoJR2V0UGVy",
-            "c29uEhkuaGVsbG93b3JsZC5QZXJzb25SZXF1ZXN0GhIuaGVsbG93b3JsZC5Q",
-            "ZXJzb24iAEI2Chtpby5ncnBjLmV4YW1wbGVzLmhlbGxvd29ybGRCD0hlbGxv",
-            "V29ybGRQcm90b1ABogIDSExXYgZwcm90bzM="));
+            "dBIMCgRuYW1lGAEgASgJIh8KDlBlcnNvbnNSZXF1ZXN0Eg0KBWNvdW50GAEg",
+            "ASgJIh0KDVBlcnNvblJlcXVlc3QSDAoEbmFtZRgBIAEoCSIdCgpIZWxsb1Jl",
+            "cGx5Eg8KB21lc3NhZ2UYASABKAkiPAoGUGVyc29uEhAKCGZ1bGxuYW1lGAEg",
+            "ASgJEhAKCHBob25lbmJyGAIgASgJEg4KBnVzZXJpZBgDIAEoCTLJAQoHR3Jl",
+            "ZXRlchI+CghTYXlIZWxsbxIYLmhlbGxvd29ybGQuSGVsbG9SZXF1ZXN0GhYu",
+            "aGVsbG93b3JsZC5IZWxsb1JlcGx5IgASPAoJR2V0UGVyc29uEhkuaGVsbG93",
+            "b3JsZC5QZXJzb25SZXF1ZXN0GhIuaGVsbG93b3JsZC5QZXJzb24iABJACgpH",
+            "ZXRQZXJzb25zEhouaGVsbG93b3JsZC5QZXJzb25zUmVxdWVzdBoSLmhlbGxv",
+            "d29ybGQuUGVyc29uIgAwAUI2Chtpby5ncnBjLmV4YW1wbGVzLmhlbGxvd29y",
+            "bGRCD0hlbGxvV29ybGRQcm90b1ABogIDSExXYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Helloworld.HelloRequest), global::Helloworld.HelloRequest.Parser, new[]{ "Name" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Helloworld.PersonsRequest), global::Helloworld.PersonsRequest.Parser, new[]{ "Count" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Helloworld.PersonRequest), global::Helloworld.PersonRequest.Parser, new[]{ "Name" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Helloworld.HelloReply), global::Helloworld.HelloReply.Parser, new[]{ "Message" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Helloworld.Person), global::Helloworld.Person.Parser, new[]{ "Fullname", "Phonenbr", "Userid" }, null, null, null)
@@ -165,6 +168,126 @@ namespace Helloworld {
   }
 
   /// <summary>
+  /// The request for several persons
+  /// </summary>
+  public sealed partial class PersonsRequest : pb::IMessage<PersonsRequest> {
+    private static readonly pb::MessageParser<PersonsRequest> _parser = new pb::MessageParser<PersonsRequest>(() => new PersonsRequest());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<PersonsRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Helloworld.HelloworldReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PersonsRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PersonsRequest(PersonsRequest other) : this() {
+      count_ = other.count_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PersonsRequest Clone() {
+      return new PersonsRequest(this);
+    }
+
+    /// <summary>Field number for the "count" field.</summary>
+    public const int CountFieldNumber = 1;
+    private string count_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Count {
+      get { return count_; }
+      set {
+        count_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as PersonsRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(PersonsRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Count != other.Count) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Count.Length != 0) hash ^= Count.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Count.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Count);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Count.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Count);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(PersonsRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Count.Length != 0) {
+        Count = other.Count;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            Count = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
   /// The request message containing the person's name.
   /// </summary>
   public sealed partial class PersonRequest : pb::IMessage<PersonRequest> {
@@ -174,7 +297,7 @@ namespace Helloworld {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Helloworld.HelloworldReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Helloworld.HelloworldReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -294,7 +417,7 @@ namespace Helloworld {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Helloworld.HelloworldReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Helloworld.HelloworldReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -414,7 +537,7 @@ namespace Helloworld {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Helloworld.HelloworldReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Helloworld.HelloworldReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

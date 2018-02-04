@@ -26,12 +26,18 @@ service Greeter {
   // Sends a greeting
   rpc SayHello (HelloRequest) returns (HelloReply) {}
   rpc GetPerson (PersonRequest) returns (Person) {}
+  rpc GetPersons (PersonsRequest) returns (stream Person) {}
 }
 
 
 // The request message containing the user's name.
 message HelloRequest {
   string name = 1;
+}
+
+// The request for several persons
+message PersonsRequest {
+  string count = 1;
 }
 
 // The request message containing the person's name.

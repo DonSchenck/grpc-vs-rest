@@ -8,3 +8,13 @@
 /Users/dschenck/rest/restServer/obj/Debug/netcoreapp2.0/restServer.AssemblyInfo.cs
 /Users/dschenck/rest/restServer/obj/Debug/netcoreapp2.0/restServer.dll
 /Users/dschenck/rest/restServer/obj/Debug/netcoreapp2.0/restServer.pdb
+/Users/dschenck/grpc-vs-rest/rest/restServer/bin/Debug/netcoreapp2.0/restServer.deps.json
+/Users/dschenck/grpc-vs-rest/rest/restServer/bin/Debug/netcoreapp2.0/restServer.runtimeconfig.json
+/Users/dschenck/grpc-vs-rest/rest/restServer/bin/Debug/netcoreapp2.0/restServer.runtimeconfig.dev.json
+/Users/dschenck/grpc-vs-rest/rest/restServer/bin/Debug/netcoreapp2.0/restServer.dll
+/Users/dschenck/grpc-vs-rest/rest/restServer/bin/Debug/netcoreapp2.0/restServer.pdb
+/Users/dschenck/grpc-vs-rest/rest/restServer/obj/Debug/netcoreapp2.0/restServer.csproj.CoreCompileInputs.cache
+/Users/dschenck/grpc-vs-rest/rest/restServer/obj/Debug/netcoreapp2.0/restServer.AssemblyInfoInputs.cache
+/Users/dschenck/grpc-vs-rest/rest/restServer/obj/Debug/netcoreapp2.0/restServer.AssemblyInfo.cs
+/Users/dschenck/grpc-vs-rest/rest/restServer/obj/Debug/netcoreapp2.0/restServer.dll
+/Users/dschenck/grpc-vs-rest/rest/restServer/obj/Debug/netcoreapp2.0/restServer.pdb

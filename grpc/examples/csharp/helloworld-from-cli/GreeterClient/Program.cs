@@ -18,6 +18,7 @@ using Grpc.Core;
 using Helloworld;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace GreeterClient
 {
@@ -26,35 +27,39 @@ namespace GreeterClient
         public static void Main(string[] args)
         {
 
-//            Channel channel = new Channel("52.190.8.13:50051", ChannelCredentials.Insecure);
+            //Channel channel = new Channel("52.190.8.13:50051", ChannelCredentials.Insecure);
             Channel channel = new Channel("localhost:50051", ChannelCredentials.Insecure);
 
 
             var client = new Greeter.GreeterClient(channel);
-            String user = "grpcClient";
-//            HelloRequest hr = new HelloRequest { Name = user };
-            PersonRequest pr = new PersonRequest{ Name = user }; 
 
             Stopwatch stopwatch = Stopwatch.StartNew();
-            Console.WriteLine(" ... calling server 300 times ... hang on ...");
-            for (int i = 0; i < 300; i++)
+            Console.WriteLine(" ... calling server 100 times ... hang on ...");
+            for (int i = 0; i < 100; i++)
             {
-                //Person p = client.GetPerson(pr);
-                //AsyncUnaryCall<HelloReply> reply = client.SayHelloAsync(hr);
-                //var resultString = reply.ResponseAsync.IsCompleted;
-                if (i == 150) {
-                    //reply.ResponseAsync.Wait(CancellationToken.None);
-                    Helloworld.Person p = client.GetPerson(pr);
-                    Console.WriteLine("Greeting number " + i.ToString() + ": " + p.Userid);
-                }
+                PersonsRequest prs = new PersonsRequest { Count = "1000" };
+                var p2 = client.GetPersons(prs);
+                List<Person> Persons = GetPersons(p2).Result;
+                Console.WriteLine(Persons.Count);
             }
 
             stopwatch.Stop();
             Console.WriteLine("Elapsed time {0} ms",stopwatch.ElapsedMilliseconds);
             
-            //channel.ShutdownAsync().Wait();
+            channel.ShutdownAsync().Wait();
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
+
+
+
+        }
+        public static async Task<List<Person>> GetPersons(AsyncServerStreamingCall<Person> c) {
+            List<Person> p = new List<Person>();
+            while (await c.ResponseStream.MoveNext(CancellationToken.None))
+            {
+                p.Add(c.ResponseStream.Current);
+            }
+            return p;
         }
     }
 }

@@ -16,6 +16,7 @@ using System;
 using System.Threading.Tasks;
 using Grpc.Core;
 using Helloworld;
+using System.Collections.Generic;
 
 namespace GreeterServer
 {
@@ -26,14 +27,26 @@ namespace GreeterServer
         {
             return Task.FromResult(new HelloReply { Message = "Hello " + request.Name });
         }
-
         public override Task<Person> GetPerson(PersonRequest request, ServerCallContext context)
         {
-            Person p = new Person();
-            p.Fullname = request.Name;
-            p.Phonenbr = "555-867-3509";
-            p.Userid = request.Name + "@gmail.com";
-            return Task.FromResult(p);
+            return Task.FromResult(new Person { Fullname="foo"});
+        }
+        public override async Task GetPersons(PersonsRequest request, IServerStreamWriter<Person> responseStream, ServerCallContext context)
+        {
+            List<Person> Persons = new List<Person>();
+            for (int i = 0; i < 1000; i++)
+            {
+                Person p = new Person();
+                p.Fullname = "foo";
+                p.Phonenbr = "555-867-" + i.ToString();
+                p.Userid = i.ToString() + "@gmail.com";
+                Persons.Add(p);
+            }
+
+            foreach (var pps in Persons)
+            {
+                await responseStream.WriteAsync(pps);
+            }
         }
     }
 

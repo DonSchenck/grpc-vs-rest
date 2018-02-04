@@ -37,6 +37,7 @@ namespace Helloworld {
     static readonly grpc::Marshaller<global::Helloworld.HelloReply> __Marshaller_HelloReply = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Helloworld.HelloReply.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Helloworld.PersonRequest> __Marshaller_PersonRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Helloworld.PersonRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Helloworld.Person> __Marshaller_Person = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Helloworld.Person.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Helloworld.PersonsRequest> __Marshaller_PersonsRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Helloworld.PersonsRequest.Parser.ParseFrom);
 
     static readonly grpc::Method<global::Helloworld.HelloRequest, global::Helloworld.HelloReply> __Method_SayHello = new grpc::Method<global::Helloworld.HelloRequest, global::Helloworld.HelloReply>(
         grpc::MethodType.Unary,
@@ -50,6 +51,13 @@ namespace Helloworld {
         __ServiceName,
         "GetPerson",
         __Marshaller_PersonRequest,
+        __Marshaller_Person);
+
+    static readonly grpc::Method<global::Helloworld.PersonsRequest, global::Helloworld.Person> __Method_GetPersons = new grpc::Method<global::Helloworld.PersonsRequest, global::Helloworld.Person>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "GetPersons",
+        __Marshaller_PersonsRequest,
         __Marshaller_Person);
 
     /// <summary>Service descriptor</summary>
@@ -73,6 +81,11 @@ namespace Helloworld {
       }
 
       public virtual global::System.Threading.Tasks.Task<global::Helloworld.Person> GetPerson(global::Helloworld.PersonRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task GetPersons(global::Helloworld.PersonsRequest request, grpc::IServerStreamWriter<global::Helloworld.Person> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -162,6 +175,14 @@ namespace Helloworld {
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetPerson, null, options, request);
       }
+      public virtual grpc::AsyncServerStreamingCall<global::Helloworld.Person> GetPersons(global::Helloworld.PersonsRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return GetPersons(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Helloworld.Person> GetPersons(global::Helloworld.PersonsRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_GetPersons, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override GreeterClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -175,7 +196,8 @@ namespace Helloworld {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_SayHello, serviceImpl.SayHello)
-          .AddMethod(__Method_GetPerson, serviceImpl.GetPerson).Build();
+          .AddMethod(__Method_GetPerson, serviceImpl.GetPerson)
+          .AddMethod(__Method_GetPersons, serviceImpl.GetPersons).Build();
     }
 
   }

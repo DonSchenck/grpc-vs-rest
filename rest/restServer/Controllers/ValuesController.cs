@@ -21,11 +21,17 @@ namespace restServer.Controllers
         [HttpGet("{name}")]
         public JsonResult Get(string name)
         {
-            Person _person = new Person();
-            _person.fullname = name;
-            _person.phonenbr = "555-867-3509";
-            _person.userid = name + "@gmail.com";
-            return Json(_person);
+            List<Person> Persons = new List<Person>();
+
+            for (int i=0; i < 1000; i++) {
+                Person _person = new Person();
+                _person.fullname = name;
+                _person.phonenbr = "555-867-" + i.ToString();
+                _person.userid = name + "@gmail.com";
+                Persons.Add(_person);
+            }
+
+            return Json(Persons);
         }
 
     }
