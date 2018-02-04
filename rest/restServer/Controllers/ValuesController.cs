@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace restServer.Controllers
 {
@@ -18,9 +19,13 @@ namespace restServer.Controllers
 
         // GET api/values/name
         [HttpGet("{name}")]
-        public string Get(string name)
+        public JsonResult Get(string name)
         {
-            return "Hello " + name;
+            Person _person = new Person();
+            _person.fullname = name;
+            _person.phonenbr = "555-867-3509";
+            _person.userid = name + "@gmail.com";
+            return Json(_person);
         }
 
     }

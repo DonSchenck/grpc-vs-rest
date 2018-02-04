@@ -8,3 +8,13 @@
 /Users/dschenck/rest/restClient/obj/Debug/netcoreapp2.0/restClient.AssemblyInfo.cs
 /Users/dschenck/rest/restClient/obj/Debug/netcoreapp2.0/restClient.dll
 /Users/dschenck/rest/restClient/obj/Debug/netcoreapp2.0/restClient.pdb
+/Users/dschenck/grpc-vs-rest/rest/restClient/bin/Debug/netcoreapp2.0/restClient.deps.json
+/Users/dschenck/grpc-vs-rest/rest/restClient/bin/Debug/netcoreapp2.0/restClient.runtimeconfig.json
+/Users/dschenck/grpc-vs-rest/rest/restClient/bin/Debug/netcoreapp2.0/restClient.runtimeconfig.dev.json
+/Users/dschenck/grpc-vs-rest/rest/restClient/bin/Debug/netcoreapp2.0/restClient.dll
+/Users/dschenck/grpc-vs-rest/rest/restClient/bin/Debug/netcoreapp2.0/restClient.pdb
+/Users/dschenck/grpc-vs-rest/rest/restClient/obj/Debug/netcoreapp2.0/restClient.csproj.CoreCompileInputs.cache
+/Users/dschenck/grpc-vs-rest/rest/restClient/obj/Debug/netcoreapp2.0/restClient.AssemblyInfoInputs.cache
+/Users/dschenck/grpc-vs-rest/rest/restClient/obj/Debug/netcoreapp2.0/restClient.AssemblyInfo.cs
+/Users/dschenck/grpc-vs-rest/rest/restClient/obj/Debug/netcoreapp2.0/restClient.dll
+/Users/dschenck/grpc-vs-rest/rest/restClient/obj/Debug/netcoreapp2.0/restClient.pdb

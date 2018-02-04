@@ -23,17 +23,23 @@ namespace GreeterClient
     {
         public static void Main(string[] args)
         {
-            Channel channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
 
-            Stopwatch stopwatch = Stopwatch.StartNew();
+            Channel channel = new Channel("52.190.8.13:50051", ChannelCredentials.Insecure);
+
 
             var client = new Greeter.GreeterClient(channel);
             String user = "from the gRPC server";
+            HelloRequest hr = new HelloRequest { Name = user };
 
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            Console.WriteLine(" ... calling server 1,000 times ... hang on ...");
             for (int i = 0; i < 1000; i++)
             {
-                var reply = client.SayHello(new HelloRequest { Name = user });
-                Console.WriteLine("Greeting number " + i.ToString() + ": " + reply.Message);
+                AsyncUnaryCall<HelloReply> reply = client.SayHelloAsync(hr);
+                var resultString = reply.ResponseAsync.Result;
+                if (i == 500) {
+                    Console.WriteLine("Greeting number " + i.ToString() + ": " + resultString);
+                }
             }
 
             stopwatch.Stop();
