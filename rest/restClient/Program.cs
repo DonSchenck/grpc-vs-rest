@@ -13,8 +13,8 @@ namespace restClient
         private static readonly HttpClient client = new HttpClient();
         static void Main(string[] args)
         {
-//            string url = "http://52.190.8.13:5000/api/values/";
-            string url = "http://localhost:5000/api/values/";
+            string url = "http://52.190.8.13:5000/api/values/";
+            //string url = "http://localhost:5000/api/values/";
             string username = "REST client";
             Console.WriteLine("... making 100 REST calls ... be right back ...");
             Stopwatch stopwatch = Stopwatch.StartNew();
