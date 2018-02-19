@@ -4,7 +4,7 @@ gRPC vs. REST demo
 This is a test to see what happens when HTML is embedded in a Github Markdown document.
 </div>
 
-<div style="display:none">
+<div style="color:red">
 <script>
 function showOS() {
     // do something here
