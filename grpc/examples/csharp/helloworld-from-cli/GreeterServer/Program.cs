@@ -40,14 +40,8 @@ namespace GreeterServer
                 p.Fullname = "foo";
                 p.Phonenbr = "555-867-" + i.ToString();
                 p.Userid = i.ToString() + "@gmail.com";
-//                Persons.Add(p);
                 await responseStream.WriteAsync(p);
             }
-
-//            foreach (var pps in Persons)
-//            {
-//                await responseStream.WriteAsync(pps);
-//            }
         }
     }
 

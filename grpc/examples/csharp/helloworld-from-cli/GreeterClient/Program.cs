@@ -27,8 +27,8 @@ namespace GreeterClient
         public static void Main(string[] args)
         {
 
-            //Channel channel = new Channel("52.190.8.13:50051", ChannelCredentials.Insecure);
-            Channel channel = new Channel("localhost:50051", ChannelCredentials.Insecure);
+            Channel channel = new Channel("52.190.8.13:50051", ChannelCredentials.Insecure);
+            //Channel channel = new Channel("localhost:50051", ChannelCredentials.Insecure);
 
 
             var client = new Greeter.GreeterClient(channel);
